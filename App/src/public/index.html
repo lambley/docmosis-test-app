@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Test Docmosis mail merge and document generation"
+    />
+    <title>Docmosis Mailmerge Test</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">Docmosis test app</p>
+        <h1>Create a personalized letter</h1>
+        <p>
+          Enter recipient details and generate a Word document with the Docmosis
+          template.
+        </p>
+      </header>
+
+      <section class="card" aria-labelledby="form-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Mail merge</p>
+            <h2 id="form-title">Letter details</h2>
+          </div>
+          <span class="status"><span></span> Docmosis connected</span>
+        </div>
+
+        <form id="letter-form" novalidate>
+          <div class="form-grid">
+            <label
+              >First name<input
+                name="person.firstName"
+                autocomplete="given-name"
+                required
+            /></label>
+            <label
+              >Last name<input
+                name="person.lastName"
+                autocomplete="family-name"
+                required
+            /></label>
+            <label class="full-width"
+              >Address line 1<input
+                name="person.address.Line1"
+                autocomplete="address-line1"
+                required
+            /></label>
+            <label class="full-width"
+              >Address line 2<input
+                name="person.address.Line2"
+                autocomplete="address-line2"
+                required
+            /></label>
+            <label>Position number<input name="position.Num" required /></label>
+            <label
+              >Position title<input name="position.Title" required
+            /></label>
+            <label
+              >Acknowledge date<input name="acknowledgeDate" required
+            /></label>
+            <label
+              >Number of applications<input
+                name="numApplications"
+                inputmode="numeric"
+                required
+            /></label>
+            <label
+              >Include timeframe<input
+                name="includeTimeframe"
+                type="checkbox"
+                value="true"
+                required
+            /></label>
+            <label>Response date<input name="responseDate" required /></label>
+            <label>HR representative<input name="hrRep.name" required /></label>
+            <label>HR position<input name="hrRep.Position" required /></label>
+            <label class="full-width"
+              >Branch address line 1<input
+                name="branch.Addr1"
+                autocomplete="address-line1"
+                required
+            /></label>
+            <label class="full-width"
+              >Branch address line 2<input
+                name="branch.Addr2"
+                autocomplete="address-line2"
+                required
+            /></label>
+            <label
+              >Branch state<input
+                name="branch.State"
+                autocomplete="address-level1"
+                required
+            /></label>
+            <label
+              >Branch ZIP code<input
+                name="branch.ZIP"
+                autocomplete="postal-code"
+                required
+            /></label>
+            <label
+              >Branch phone<input name="branch.Phone" type="tel" required
+            /></label>
+            <label
+              >Branch email<input
+                name="branch.Email"
+                type="email"
+                autocomplete="email"
+                required
+            /></label>
+          </div>
+
+          <div class="form-actions">
+            <p id="form-message" role="status" aria-live="polite"></p>
+            <button type="submit">
+              Generate Word document <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section id="result" class="result" hidden>
+        <h2>Your document is ready</h2>
+        <p id="result-message"></p>
+        <a id="download-link" href="#" download>Download .docx</a>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
